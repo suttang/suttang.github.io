@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>sketch1</title>
+	<style type="text/css">
+		html, body {
+			margin: 0;
+			padding: 0;
+		}
+		canvas {
+			outline: none;
+		}
+	</style>
+</head>
+<body>
+	<script src="processing.js"></script>
+	<script type="text/processing" data-processing-target="canvas">
+int displayWidth = 640;
+int displayHeight = 720;
+
+class CurveLine {
+  float theta;
+  float x, y;
+  float px, py;
+  float scale;
+  boolean isOver = false;
+  PVector center;
+  float smaller;
+  int r, g, b;
+  float rr, gr, br;
+  CurveLine() {
+    reset();
+  }
+  
+  void update() {
+    px = x;
+    py = y;
+    theta += 0.1;
+    x = cos(theta) * scale + center.x;
+    y = sin(theta) * scale + center.y;
+    
+     rr = 5 / scale;
+     br = 10 / scale;
+     gr = 10 / scale;
+    
+    if (scale < 1) {
+      isOver = true;
+    }
+    if (isOver) {
+      scale /= smaller;
+    } else {
+      scale *= smaller;
+    }
+    
+    if (scale > 1000) {
+        reset();
+    }
+  }
+  
+  void draw() {
+    if (px == 0 && py == 0) {
+      return;
+    }
+    stroke(r, g, b, 255 / scale);
+    //stroke(r, g, b);
+    strokeWeight(1);
+    line(px, py, x, y);
+  }
+  
+  void reset() {
+    isOver = false;
+    scale = random(4000) + 400;
+    smaller = random(0.20) + 0.80;
+    theta = 0;
+    center = new PVector(random(displayWidth), random(displayHeight));
+    x = 0;
+    y = 0;
+    px = 0;
+    py = 0;
+    r = int(random(250) + 100);
+    g = int(random(60) + 55);
+    b = int(random(200) + 0);
+    rr = 100;
+    gr = 100;
+    br = 100;
+  }
+}
+
+
+int amountOfLine = 1000;
+CurveLine[] lines = new CurveLine[amountOfLine];
+
+void setup() {
+  noStroke();
+  size(displayWidth, displayHeight);
+  for (int i = 0; i < amountOfLine; i++) {
+    lines[i] = new CurveLine();
+  }
+  frameRate(60);
+  fill(color(255, 255, 255));
+  rect(0, 0, displayWidth, displayHeight);
+}
+
+void draw() {
+  noStroke();
+  
+  //fill(color(255, 255, 255));
+  //rect(0, 0, displayWidth, displayHeight);
+  
+  for (int i = 0; i < amountOfLine; i++) {
+    lines[i].update();
+    lines[i].draw();
+  }
+}
+	</script>
+	<canvas id="canvas"></canvas>
+</body>
+</html>
