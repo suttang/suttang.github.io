@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>personal-mail</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { max-width: 40em; margin: 0 auto; padding: 2rem 1.25rem; font-family: system-ui, sans-serif; line-height: 1.8; color: #242424; background: #fff; overflow-wrap: anywhere; }
+    a { color: #1858a8; text-underline-offset: .2em; }
+    a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+    header { padding-bottom: 1.5rem; border-bottom: 1px solid #ccc; }
+    h1 { margin: 0 0 .5rem; font-size: 2rem; line-height: 1.3; }
+    h2 { margin-top: 2rem; font-size: 1.5rem; line-height: 1.4; }
+    h3 { margin-top: 1.75rem; font-size: 1.1rem; }
+    nav { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; }
+    section + section { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ccc; }
+    li + li { margin-top: .5rem; }
+    code { font-size: .95em; }
+    footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ccc; font-size: .9rem; }
+    @media (prefers-color-scheme: dark) {
+      body { color: #e6e6e6; background: #181818; }
+      a { color: #9bc6ff; }
+      header, section + section, footer { border-color: #555; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>personal-mail</h1>
+    <nav aria-label="ページ / Pages">
+      <a href="index.html">ホーム / Home</a>
+      <a href="privacy.html">プライバシーポリシー / Privacy Policy</a>
+    </nav>
+  </header>
+  <main>
+    <section aria-labelledby="about-ja">
+      <h2 id="about-ja">自分の Gmail を読み、下書きを作る個人用のツール</h2>
+      <p>personal-mail は、持ち主が自分の Gmail を自分の Mac の Claude Code / Codex から読み、新規メールや返信の下書きを作るための個人用コマンドラインツールです。持ち主のほかには提供していません。</p>
+      <h3>できること</h3>
+      <ul>
+        <li>メールの一覧・スレッド・本文を読む。</li>
+        <li>添付ファイルの名前・種類・大きさを確認する。添付の中身は取得しません。</li>
+        <li>新規メールや返信の下書きを作る・直す。</li>
+      </ul>
+      <h3>できないこと</h3>
+      <p>送信（下書きの送信を含む）、削除（ゴミ箱・迷惑メールへの移動を含む）、ラベルの変更、既読・未読の変更、アーカイブ、下書きの削除はできません。送信は持ち主が Gmail の画面で行います。</p>
+      <h3>メールの中身の扱い</h3>
+      <p>持ち主の指示で動く AI アシスタントが、要約・仕分け・返信の下書きのためにメールを読みます。そのため、メールの中身が Anthropic の API（Codex を使うときは OpenAI の API）に送られることがあります。詳しくは<a href="privacy.html">プライバシーポリシー</a>をご覧ください。</p>
+      <h3>連絡先</h3>
+      <p><a href="https://github.com/suttang">https://github.com/suttang</a></p>
+    </section>
+    <section lang="en" aria-labelledby="about-en">
+      <h2 id="about-en">A personal tool to read Gmail and prepare drafts</h2>
+      <p>personal-mail is a personal command-line tool for its owner to read their own Gmail and create new email and reply drafts through Claude Code / Codex on their own Mac. It is not offered to anyone other than its owner.</p>
+      <h3>What it can do</h3>
+      <ul>
+        <li>Read message lists, threads, and message bodies.</li>
+        <li>View attachment names, types, and sizes. It does not retrieve attachment contents.</li>
+        <li>Create and update new email and reply drafts.</li>
+      </ul>
+      <h3>What it cannot do</h3>
+      <p>It cannot send mail (including drafts), delete mail (including moving it to Trash or Spam), change labels, mark mail as read or unread, archive mail, or delete drafts. The owner sends mail in the Gmail interface.</p>
+      <h3>How email content is handled</h3>
+      <p>An AI assistant acting on the owner's instructions reads email to summarize it, organize it, and prepare reply drafts. As a result, email content may be sent to Anthropic's API (or OpenAI's API when using Codex). See the <a href="privacy.html">Privacy Policy</a> for details.</p>
+      <h3>Contact</h3>
+      <p><a href="https://github.com/suttang">https://github.com/suttang</a></p>
+    </section>
+  </main>
+  <footer>
+    <nav aria-label="関連ページ / Related pages">
+      <a href="index.html">ホーム / Home</a>
+      <a href="privacy.html">プライバシーポリシー / Privacy Policy</a>
+      <a href="https://github.com/suttang">GitHub</a>
+    </nav>
+  </footer>
+</body>
+</html>
